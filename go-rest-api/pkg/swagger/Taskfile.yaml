@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  build:
+    desc: Build the app
+    cmds:
+      - GOFLAGS=-mod=mod go build -o bin/go-rest-api internal/main.go
+
+  run:
+    desc: Run the app
+    cmds:
+      - GOFLAGS=-mod=mod go run internal/main.go
+  
+  swagger.gen:
+    desc: Generate Go code
+    cmds:
+    - GOFLAGS=-mod=mod go generate github.com/chrishayes042/learningGo/go-rest-api/internal github.com/chrishayes042/learingGo/go-rest-api/pkg/swagger
+
+  swagger.validate:
+    desc: Validate swagger
+    cmds:
+    - swagger validate swagger.yml
+
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
