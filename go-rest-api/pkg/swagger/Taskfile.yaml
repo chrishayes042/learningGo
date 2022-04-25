@@ -26,6 +26,11 @@ tasks:
     cmds:
     - swagger validate swagger.yml
 
+  swagger.doc:
+    desc: Doc for swagger
+    cmds:
+    - docker run -i yousan/swagger-yaml-to-html < swagger.yml > doc/index.html
+
   default:
     cmds:
       - echo "{{.GREETING}}"
