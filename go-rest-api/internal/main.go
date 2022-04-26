@@ -5,8 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/chrishayes042/learningGo/go-rest-api/pkg/swagger/server/restapi"
-	"github.com/chrishayes042/learningGo/go-rest-api/pkg/swagger/server/restapi/operations"
+	"learningGo/go-rest-api/pkg/swagger/server/restapi"
+	"learningGo/go-rest-api/pkg/swagger/server/restapi/operations"
+
 	"github.com/go-openapi/loads"
 	"github.com/go-openapi/runtime/middleware"
 )
