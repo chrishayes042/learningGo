@@ -5,8 +5,8 @@ var socket = new WebSocket("ws://localhost:8080/ws");
 // listens to events 
 // such as succussful connection with 'onopen'
 // if it sees any issue it will proceed to print out the error to the console
-let connect = () => {
-    console.log("Attempting Connection...");
+let connect = cb => {
+    console.log("connecting");
 
     socket.onopen = () => {
         console.log("Successfully Connected");
@@ -14,6 +14,7 @@ let connect = () => {
 
     socket.onmessage = msg => {
         console.log(msg);
+        cb(msg);
     };
 
     socket.onclose = event => {
